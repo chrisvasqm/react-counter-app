@@ -9,15 +9,21 @@ class Counter extends Component {
       <main className="container">
         <h1>Counter</h1>
 
-        <span style={{ fontSize: 14 }} className={this.renderBadge()}>
-          {this.formatCount()}
-        </span>
-        <button
-          className="btn btn-secondary btn-md m-2"
-          onClick={this.handleIncrement}
-        >
-          Increment
+        <button className="btn btn-md btn-primary" onClick={this.handleReset}>
+          Reset
         </button>
+
+        <div>
+          <span style={{ fontSize: 14 }} className={this.renderBadge()}>
+            {this.formatCount()}
+          </span>
+          <button
+            className="btn btn-secondary btn-md m-2"
+            onClick={this.handleIncrement}
+          >
+            Increment
+          </button>
+        </div>
       </main>
     );
   }
@@ -36,6 +42,10 @@ class Counter extends Component {
   handleIncrement = () => {
     const value = this.state.value + 1;
     this.setState({ value });
+  };
+
+  handleReset = () => {
+    this.setState({ value: 0 });
   };
 }
 
