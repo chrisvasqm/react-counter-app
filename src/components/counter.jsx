@@ -12,7 +12,12 @@ class Counter extends Component {
         <span style={{ fontSize: 14 }} className={this.renderBadge()}>
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary btn-md m-2">Increment</button>
+        <button
+          className="btn btn-secondary btn-md m-2"
+          onClick={this.handleIncrement}
+        >
+          Increment
+        </button>
       </main>
     );
   }
@@ -27,6 +32,11 @@ class Counter extends Component {
     classes += this.state.value == 0 ? "warning" : "primary";
     return classes;
   }
+
+  handleIncrement = () => {
+    const value = this.state.value + 1;
+    this.setState({ value });
+  };
 }
 
 export default Counter;
