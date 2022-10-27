@@ -2,29 +2,23 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: 0,
+    value: this.props.value,
   };
+
   render() {
+    console.log(this.props);
     return (
-      <main className="container">
-        <h1>Counter</h1>
-
-        <button className="btn btn-md btn-primary" onClick={this.handleReset}>
-          Reset
+      <div>
+        <span style={{ fontSize: 14 }} className={this.getBadgeClasses()}>
+          {this.formatCount()}
+        </span>
+        <button
+          className="btn btn-secondary btn-md m-2"
+          onClick={this.handleIncrement}
+        >
+          Increment
         </button>
-
-        <div>
-          <span style={{ fontSize: 14 }} className={this.getBadgeClasses()}>
-            {this.formatCount()}
-          </span>
-          <button
-            className="btn btn-secondary btn-md m-2"
-            onClick={this.handleIncrement}
-          >
-            Increment
-          </button>
-        </div>
-      </main>
+      </div>
     );
   }
 
