@@ -37,6 +37,7 @@ class Counters extends Component {
 
   handleDelete = id => {
     const counters = this.state.counters.filter(counter => counter.id !== id);
+    
     this.setState({ counters });
   };
 
@@ -45,6 +46,7 @@ class Counters extends Component {
       counter.value = 0;
       return counter;
     });
+
     this.setState({ counters });
   };
 
@@ -53,6 +55,7 @@ class Counters extends Component {
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value++;
+
     this.setState({ counters });
   };
 }
