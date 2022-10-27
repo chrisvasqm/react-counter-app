@@ -17,6 +17,7 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button className="btn btn-md m-2 btn-danger">Delete</button>
       </div>
     );
   }
