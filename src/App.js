@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar totalCounters={this.state.counters.filter(counter => counter.value > 0).length}/>
 
         <main className="container">
           <Counters
