@@ -1,18 +1,57 @@
 import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
-import React from "react";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <React.Fragment>
-      <Navbar />
+class App extends Component {
+  state = {
+    counters: [
+      { id: 1, value: 0 },
+      { id: 2, value: 0 },
+      { id: 3, value: 0 },
+    ],
+  };
 
-      <main className="container">
-        <Counters />
-      </main>
-    </React.Fragment>
-  );
+  handleDelete = id => {
+    const counters = this.state.counters.filter(counter => counter.id !== id);
+
+    this.setState({ counters });
+  };
+
+  handleReset = () => {
+    const counters = this.state.counters.map(counter => {
+      counter.value = 0;
+      return counter;
+    });
+
+    this.setState({ counters });
+  };
+
+  handleIncrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+
+    this.setState({ counters });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Navbar />
+
+        <main className="container">
+          <Counters
+            counters={this.state.counters}
+            onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
+            onReset={this.handleReset}
+          />
+        </main>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
