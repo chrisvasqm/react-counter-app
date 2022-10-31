@@ -5,7 +5,6 @@ class Counters extends Component {
   render() {
     return (
       <div>
-        <h1>Counters</h1>
         <button
           className="btn btn-primary btn-md m-2"
           onClick={this.props.onReset}
