@@ -20,6 +20,7 @@ class Counter extends Component {
           >
             +
           </button>
+          <button className="btn btn-secondary btn md m-2">-</button>
           <button
             className="btn btn-md m-2 btn-danger"
             onClick={() => {
