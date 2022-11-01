@@ -58,7 +58,7 @@ class Counter extends Component {
   };
 
   isDisabled(counter) {
-    return counter.value == 0;
+    return counter.value === 0;
   }
 }
 
