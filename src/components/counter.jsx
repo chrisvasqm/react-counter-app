@@ -15,7 +15,7 @@ class Counter extends Component {
             onIncrement(counter);
           }}
         >
-          Increment
+          +
         </button>
         <button
           className="btn btn-md m-2 btn-danger"
@@ -23,7 +23,7 @@ class Counter extends Component {
             onDelete(counter.id);
           }}
         >
-          Delete
+          x
         </button>
       </div>
     );
