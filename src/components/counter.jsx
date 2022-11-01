@@ -13,7 +13,7 @@ class Counter extends Component {
         </div>
         <div className="col-2">
           <button
-            className="btn btn-secondary btn-md m-2"
+            className="btn btn-secondary btn-md"
             onClick={() => {
               onIncrement(counter);
             }}
@@ -30,7 +30,7 @@ class Counter extends Component {
             -
           </button>
           <button
-            className="btn btn-md m-2 btn-danger"
+            className="btn btn-md btn-danger"
             onClick={() => {
               onDelete(counter.id);
             }}
