@@ -20,7 +20,12 @@ class Counter extends Component {
           >
             +
           </button>
-          <button className="btn btn-secondary btn md m-2">-</button>
+          <button
+            className="btn btn-secondary btn md m-2"
+            disabled={this.isDisabled(counter)}
+          >
+            -
+          </button>
           <button
             className="btn btn-md m-2 btn-danger"
             onClick={() => {
@@ -48,6 +53,10 @@ class Counter extends Component {
   handleReset = () => {
     this.setState({ value: 0 });
   };
+
+  isDisabled(counter) {
+    return counter.value == 0;
+  }
 }
 
 export default Counter;
