@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
-    const { onIncrement, counter, onDelete } = this.props;
+    const { onIncrement, counter, onDelete, onDecrement } = this.props;
 
     return (
       <div className="row">
@@ -23,6 +23,9 @@ class Counter extends Component {
           <button
             className="btn btn-secondary btn md m-2"
             disabled={this.isDisabled(counter)}
+            onClick={() => {
+              onDecrement(counter);
+            }}
           >
             -
           </button>

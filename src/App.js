@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
 import React, { Component } from "react";
+import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
 
 class App extends Component {
   state = {
@@ -36,10 +37,23 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  handleDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+
+    this.setState({ counters });
+  };
+
   render() {
     return (
       <React.Fragment>
-        <Navbar totalCounters={this.state.counters.filter(counter => counter.value > 0).length}/>
+        <Navbar
+          totalCounters={
+            this.state.counters.filter(counter => counter.value > 0).length
+          }
+        />
 
         <main className="container">
           <Counters
@@ -47,6 +61,7 @@ class App extends Component {
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
             onReset={this.handleReset}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment>
