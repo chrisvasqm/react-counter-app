@@ -5,26 +5,30 @@ class Counter extends Component {
     const { onIncrement, counter, onDelete } = this.props;
 
     return (
-      <div>
-        <span style={{ fontSize: 14 }} className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button
-          className="btn btn-secondary btn-md m-2"
-          onClick={() => {
-            onIncrement(counter);
-          }}
-        >
-          +
-        </button>
-        <button
-          className="btn btn-md m-2 btn-danger"
-          onClick={() => {
-            onDelete(counter.id);
-          }}
-        >
-          x
-        </button>
+      <div className="row">
+        <div className="col-1">
+          <span style={{ fontSize: 14 }} className={this.getBadgeClasses()}>
+            {this.formatCount()}
+          </span>
+        </div>
+        <div className="col-2">
+          <button
+            className="btn btn-secondary btn-md m-2"
+            onClick={() => {
+              onIncrement(counter);
+            }}
+          >
+            +
+          </button>
+          <button
+            className="btn btn-md m-2 btn-danger"
+            onClick={() => {
+              onDelete(counter.id);
+            }}
+          >
+            x
+          </button>
+        </div>
       </div>
     );
   }
